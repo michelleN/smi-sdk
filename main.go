@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	splitv1alpha1 "github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha1"
-	splitcontrollers "github.com/servicemeshinterface/smi-controller-sdk/controllers/split"
+	splitv1alpha1 "github.com/michelleN/smi-sdk/apis/split/v1alpha1"
+	splitcontrollers "github.com/michelleN/smi-sdk/controllers/split"
 	//+kubebuilder:scaffold:imports
 )
 

@@ -12,6 +12,6 @@ resources:
   domain: smi-spec.io
   group: split
   kind: TrafficSplit
-  path: github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha1
+  path: github.com/michelleN/smi-sdk/apis/split/v1alpha1
   version: v1alpha1
 version: "3"

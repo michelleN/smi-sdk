@@ -30,9 +30,9 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	splitv1alpha1 "github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha1"
-	splitv1alpha2 "github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha2"
-	splitv1alpha4 "github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha4"
+	splitv1alpha1 "github.com/michelleN/smi-sdk/apis/split/v1alpha1"
+	splitv1alpha2 "github.com/michelleN/smi-sdk/apis/split/v1alpha2"
+	splitv1alpha4 "github.com/michelleN/smi-sdk/apis/split/v1alpha4"
 	//+kubebuilder:scaffold:imports
 )
 

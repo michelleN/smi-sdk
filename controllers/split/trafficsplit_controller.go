@@ -24,7 +24,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	splitv1alpha1 "github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha1"
+	splitv1alpha1 "github.com/michelleN/smi-sdk/apis/split/v1alpha1"
 )
 
 // TrafficSplitReconciler reconciles a TrafficSplit object
