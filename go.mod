@@ -1,4 +1,4 @@
-module github.com/servicemeshinterface/smi-controller-sdk
+module github.com/michelleN/smi-sdk
 
 go 1.15
 

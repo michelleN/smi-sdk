@@ -3,7 +3,7 @@ layout:
 - go.kubebuilder.io/v3
 multigroup: true
 projectName: smi-sdk
-repo: github.com/servicemeshinterface/smi-controller-sdk
+repo: github.com/michelleN/smi-sdk
 resources:
 - api:
     crdVersion: v1
