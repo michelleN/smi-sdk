@@ -1,0 +1,7 @@
+apiVersion: split.smi-spec.io/v1alpha3
+kind: TrafficSplit
+metadata:
+  name: trafficsplit-sample
+spec:
+  # Add fields here
+  foo: bar
