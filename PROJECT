@@ -1,0 +1,17 @@
+domain: smi-spec.io
+layout:
+- go.kubebuilder.io/v3
+multigroup: true
+projectName: smi-sdk
+repo: github.com/servicemeshinterface/smi-controller-sdk
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: smi-spec.io
+  group: split
+  kind: TrafficSplit
+  path: github.com/servicemeshinterface/smi-controller-sdk/apis/split/v1alpha1
+  version: v1alpha1
+version: "3"
