@@ -3,5 +3,9 @@ kind: TrafficSplit
 metadata:
   name: trafficsplit-sample
 spec:
-  # Add fields here
-  foo: bar
+  service: foo
+  backends:
+    - service: bar
+      weight: 50m
+    - service: baz
+      weight: 50m
