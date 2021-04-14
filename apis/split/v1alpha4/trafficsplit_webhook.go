@@ -20,8 +20,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 )
 
-var trafficsplitlog = logf.Log.WithName("trafficsplit-resource")
-
 func (r *TrafficSplit) SetupWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr).
 		For(r).

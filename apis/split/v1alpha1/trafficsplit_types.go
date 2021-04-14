@@ -45,6 +45,7 @@ type TrafficSplitStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
+//+genclient
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
@@ -57,6 +58,7 @@ type TrafficSplit struct {
 	Status TrafficSplitStatus `json:"status,omitempty"`
 }
 
+// +genclient
 //+kubebuilder:object:root=true
 
 // TrafficSplitList contains a list of TrafficSplit

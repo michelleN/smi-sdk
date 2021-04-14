@@ -35,14 +35,13 @@ function generate_client() {
   CUSTOM_RESOURCE_VERSIONS=$2
 
    # code-generator makes assumptions about the project being located in `$GOPATH/src`.
-  # To work around this we create a temporary directory, use it as output base and copy everything back once generated.
+
   "${CODEGEN_PKG}"/generate-groups.sh all \
-    "$ROOT_PACKAGE/pkg/gen/client/$CUSTOM_RESOURCE_NAME" \
+    "$ROOT_PACKAGE/generated/$CUSTOM_RESOURCE_NAME" \
     "$ROOT_PACKAGE/apis" \
     $CUSTOM_RESOURCE_NAME:$CUSTOM_RESOURCE_VERSIONS \
     --go-header-file "${ROOT_DIR}"/hack/boilerplate.go.txt \
-    --output-base pkg/gen
-
+    --output-base ../../../
 }
 
 echo "##### Generating split.smi-spec.io client ######"
