@@ -23,4 +23,13 @@ resources:
   kind: TrafficTarget
   path: github.com/michelleN/smi-sdk/apis/access/v1alpha1
   version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: smi-spec.io
+  group: specs
+  kind: HTTPRouteGroup
+  path: github.com/michelleN/smi-sdk/apis/specs/v1alpha1
+  version: v1alpha1
 version: "3"

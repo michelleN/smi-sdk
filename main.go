@@ -32,8 +32,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	accessv1alpha1 "github.com/michelleN/smi-sdk/apis/access/v1alpha1"
+	specsv1alpha1 "github.com/michelleN/smi-sdk/apis/specs/v1alpha1"
 	splitv1alpha1 "github.com/michelleN/smi-sdk/apis/split/v1alpha1"
 	accesscontrollers "github.com/michelleN/smi-sdk/controllers/access"
+	specscontrollers "github.com/michelleN/smi-sdk/controllers/specs"
 	splitcontrollers "github.com/michelleN/smi-sdk/controllers/split"
 	//+kubebuilder:scaffold:imports
 )
@@ -48,6 +50,7 @@ func init() {
 
 	utilruntime.Must(splitv1alpha1.AddToScheme(scheme))
 	utilruntime.Must(accessv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(specsv1alpha1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -95,6 +98,14 @@ func main() {
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "TrafficTarget")
+		os.Exit(1)
+	}
+	if err = (&specscontrollers.HTTPRouteGroupReconciler{
+		Client: mgr.GetClient(),
+		Log:    ctrl.Log.WithName("controllers").WithName("specs").WithName("HTTPRouteGroup"),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "HTTPRouteGroup")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder
