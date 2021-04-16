@@ -31,7 +31,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
+	accessv1alpha1 "github.com/michelleN/smi-sdk/apis/access/v1alpha1"
 	splitv1alpha1 "github.com/michelleN/smi-sdk/apis/split/v1alpha1"
+	accesscontrollers "github.com/michelleN/smi-sdk/controllers/access"
 	splitcontrollers "github.com/michelleN/smi-sdk/controllers/split"
 	//+kubebuilder:scaffold:imports
 )
@@ -45,6 +47,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(splitv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(accessv1alpha1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -84,6 +87,14 @@ func main() {
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "TrafficSplit")
+		os.Exit(1)
+	}
+	if err = (&accesscontrollers.TrafficTargetReconciler{
+		Client: mgr.GetClient(),
+		Log:    ctrl.Log.WithName("controllers").WithName("access").WithName("TrafficTarget"),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "TrafficTarget")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder
